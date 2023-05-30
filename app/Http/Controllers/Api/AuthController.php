@@ -51,4 +51,13 @@ class AuthController extends Controller
              'status' => 200,
             ]);
     }
+
+    public function signout(Request $request)
+    {
+        auth()->user()->tokens()->delete();
+
+        return [
+            'message' => 'User Logged out'
+        ];
+    }
 }
