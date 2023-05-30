@@ -26,7 +26,7 @@ class ArticleResource extends JsonResource
              'relationships' => [
                 'category' => 
                 [
-                    'category_id' => strval($this->category->id),
+                    'id' => strval($this->category->id),
                      'title' => $this->category->title
                 ]
                 ],

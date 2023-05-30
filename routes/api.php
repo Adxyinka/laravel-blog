@@ -38,8 +38,8 @@ Route::prefix('v1')->group(function(){
     });
 });
 
-Route::get('/articles/{article}', [ArticleController::class, 'showArticle']);
-
+Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
+Route::get('/categories', [CategoryController::class, 'index']);
 
 // Private Routes
 Route::group(['middleware' => ['auth:api']], function(){
@@ -48,6 +48,6 @@ Route::group(['middleware' => ['auth:api']], function(){
     Route::delete('/articles/{id}', [ArticleController::class, 'deleteArticle'])->name('deleteArticle');
 });
 
-Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
+// Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
 // Route::post('/articles', [ArticleController::class, 'createArticle']);
 
