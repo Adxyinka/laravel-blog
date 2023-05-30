@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class SigninRequest extends FormRequest
+class CommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,15 +23,6 @@ class SigninRequest extends FormRequest
     {
         return [
             //
-            'email' => ['required', 'email', 'exists:users,email'],
-            'password' => ['required', 
-            Password::min(8)->letters()
-            ->mixedCase()
-            ->numbers()
-            ->symbols()
-            ->uncompromised()
-            ]
-
         ];
     }
 }
