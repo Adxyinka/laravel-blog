@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->text('body');
             $table->string('author');
+            $table->text('comment');
             $table->timestamps();
         });
     }

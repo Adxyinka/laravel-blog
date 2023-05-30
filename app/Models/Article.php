@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,7 +16,8 @@ class Article extends Model
         'title',
         'category_id',
         'body',
-        'author'
+        'author',
+        'comment'
     ];
 
     public function category() :BelongsTo

@@ -26,13 +26,13 @@ class ArticleResource extends JsonResource
              'relationships' => [
                 'category' => 
                 [
-                    'id' => strval($this->category->id),
-                     'title' => $this->category->title
+                    'id' => strval($this->id),
+                     'title' => $this->title
                 ]
                 ],
                 'comment' => [
-                    'id' => strval($this->category->id),
-                    'comment' => $this->comment->comment
+                    'id' => strval($this->id),
+                    'comment' => $this->comment
                 ]
         ];
     }
