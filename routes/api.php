@@ -36,17 +36,31 @@ Route::prefix('v1')->group(function(){
         Route::post('signin', [AuthController::class, 'signin'])->name('signin');
         Route::post('signout', [AuthController::class, 'signout'])->name('signout');
     });
-});
+    
 
-Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
-Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/articles', [ArticleController::class, 'articles']);
+    Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
+    Route::get('/comments', [CommentController::class, 'comments']);
+    Route::get('/comments/{id}', [CommentController::class, 'singleComment']);
+    Route::get('/categories', [CategoryController::class, 'categories']);
+    Route::get('/categories/{id}', [CategoryController::class, 'singleCategory']);
 
-// Private Routes
-Route::group(['middleware' => ['auth:api']], function(){
+
+    Route::group(['middleware' => ['auth:api']], function(){
     Route::post('/articles', [ArticleController::class, 'createArticle'])->name('createArticle');
     Route::put('/articles/{id}', [ArticleController::class, 'updateArticle'])->name('updateArticle');
     Route::delete('/articles/{id}', [ArticleController::class, 'deleteArticle'])->name('deleteArticle');
+    Route::post('/categories', [CategoryController::class, 'createCategory'])->name('createCategory');
+    Route::put('/categories/{id}', [CategoryController::class, 'updateCategory'])->name('updateCategory');
+    Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+    Route::post('/comments', [CommentController::class, 'createComment'])->name('createComment');
+    Route::put('/comments/{id}', [CommentController::class, 'updateComment'])->name('updateComment');
+    Route::delete('/comments/{id}', [CommentController::class, 'deleteComment'])->name('deleteComment');
+
 });
+});
+
+
 
 // Route::get('/articles/{id}', [ArticleController::class, 'showArticle']);
 // Route::post('/articles', [ArticleController::class, 'createArticle']);

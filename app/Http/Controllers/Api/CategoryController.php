@@ -15,7 +15,7 @@ class CategoryController extends Controller
      /**
      * Display a listing of the resource.
      */
-    public function index() : JsonResponse
+    public function categories() : JsonResponse
     {
 
         // $categories = Category::latest()->paginate(5)->through(fn($cat) => new CategoryResource($cat));
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request) : JsonResponse
+    public function createCategory(CategoryRequest $request) : JsonResponse
     {
         //
         $category = Category::create($request->validated());
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $category)
+    public function singleCategory(int $category)
     {
         try {
             //code...
@@ -81,7 +81,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $category) : JsonResponse
+    public function updateCategory(Request $request, int $category) : JsonResponse
     {
         //
         $category = Category::find($category);
@@ -102,7 +102,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $category)
+    public function deleteCategory(int $category)
     {
         //
          $category = Category::find($category);

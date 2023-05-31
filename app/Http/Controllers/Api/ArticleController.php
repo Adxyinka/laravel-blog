@@ -78,22 +78,7 @@ class ArticleController extends Controller
                             'status' => 200
                         ]);
             }
-        // try {
-            
-        //     if ($article === null) {
-        //     return response()->json([
-        //         'message' => 'Article displayed successfully',
-        //         'data' => new ArticleResource($article),
-        //         'status' => 200
-        //     ]);
-        //     }
-        // } catch (\Throwable $th) {
-
-        //     return \Response::json([
-        //         'message' => 'Article was not found',
-        //         'status' => 404
-        //     ]);
-        // }
+        
     }
 
     /**

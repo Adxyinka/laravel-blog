@@ -38,7 +38,7 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CommentRequest $request) : JsonResponse
+    public function createComment(CommentRequest $request) : JsonResponse
     {
         //
         $comment = Comment::create($request->validated());
@@ -53,7 +53,7 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $comment)
+    public function singleComment(int $comment)
     {
         try {
             //code...
@@ -76,7 +76,7 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $comment) : JsonResponse
+    public function updateComment(Request $request, int $comment) : JsonResponse
     {
         //
         $comment = Comment::find($comment);
@@ -96,14 +96,14 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $comment)
+    public function deleteComment(int $comment)
     {
         //
          $comment = Comment::find($comment);
          $comment->delete();
 
           return response()->json([
-            'message' => "comment delete successfully",
+            'message' => "comment deleted successfully",
               'data' => $comment,
              'status' => 200
         ]);
